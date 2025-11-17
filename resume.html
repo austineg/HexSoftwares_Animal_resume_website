@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PawHope Animal Charity</title>
+<style>
+  :root {
+    --primary: #ff914d;
+    --secondary: #2a2a2a;
+    --light: #fdfdfd;
+    --dark: #111;
+  }
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--light);
+    color: var(--secondary);
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 60px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
+  }
+  header h1 {
+    color: var(--primary);
+    font-size: 1.8rem;
+  }
+  nav ul {
+    list-style: none; display: flex; gap: 25px;
+  }
+  nav a {
+    text-decoration: none; color: var(--secondary); font-weight: 600;
+    transition: color 0.3s;
+  }
+  nav a:hover { color: var(--primary); }
+
+  /* HERO */
+  .hero {
+    background: url('images.unsplash.com.jpeg') center/cover;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; position: relative; color: #fff;
+  }
+  .hero::after {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  .hero-content {
+    position: relative; z-index: 1; max-width: 700px;
+  }
+  .hero h2 { font-size: 3rem; margin-bottom: 15px; }
+  .hero p { font-size: 1.2rem; margin-bottom: 25px; }
+  .btn {
+    background: var(--primary); color: #fff;
+    border: none; padding: 12px 28px; border-radius: 4px;
+    font-size: 1rem; cursor: pointer; transition: background 0.3s;
+  }
+  .btn:hover { background: #ffb070; }
+
+  section {
+    padding: 100px 60px;
+  }
+  section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+    color: var(--primary);
+  }
+
+  /* MISSION */
+  .mission {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 30px; justify-content: center;
+  }
+  .mission img {
+    width: 400px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .mission-text {
+    max-width: 500px;
+  }
+  .mission-text p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+
+  /* PROGRAMS */
+  .programs {
+    background: #f7f7f7;
+  }
+  .program-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+  }
+  .program {
+    background: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  .program:hover {
+    transform: translateY(-5px);
+  }
+  .program img {
+    width: 100%; border-radius: 10px; margin-bottom: 15px;
+  }
+  .program h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+  }
+
+  /* DONATE */
+  .donate {
+    text-align: center;
+  }
+  .donate p {
+    max-width: 600px;
+    margin: 0 auto 20px;
+  }
+
+  /* CONTACT */
+  .contact {
+    background: var(--dark);
+    color: #fff;
+  }
+  .contact form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  input, textarea {
+    padding: 10px; border-radius: 4px; border: none; font-size: 1rem;
+  }
+  textarea { resize: none; height: 100px; }
+  .contact button {
+    background: var(--primary); color: #fff; border: none; padding: 12px;
+    cursor: pointer; border-radius: 4px; font-size: 1rem;
+  }
+  .contact button:hover { background: #ffb070; }
+
+  /* FOOTER */
+  footer {
+    background: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    header { flex-direction: column; gap: 10px; padding: 15px 20px; }
+    .hero h2 { font-size: 2.2rem; }
+    section { padding: 80px 20px; }
+    .mission img { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>PawHope Charity</h1>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#donate">Donate</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h2>Giving Hope to Every Paw</h2>
+    <p>Together, we rescue, care for, and rehome abandoned animals around the world.</p>
+    <button class="btn" onclick="scrollToDonate()">Donate Now</button>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section id="mission">
+  <h2>Our Mission</h2>
+  <div class="mission">
+    <img src="cat.jpeg" alt="Rescue dogs">
+    <div class="mission-text">
+      <p>At PawHope Charity, our mission is to protect and care for animals in need, giving them a second chance at life through rescue, rehabilitation, and adoption.</p>
+      <p>We believe that compassion has no limits — every creature deserves love, safety, and a home.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs" class="programs">
+  <h2>Our Programs</h2>
+  <div class="program-grid">
+    <div class="program">
+      <img src="squirel.jpeg" alt="Rescue">
+      <h3>Animal Rescue</h3>
+      <p>We save stray and abandoned animals from the streets and provide them with medical care.</p>
+    </div>
+    <div class="program">
+      <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=600&q=80" alt="Adoption">
+      <h3>Adoption Drives</h3>
+      <p>Find loving homes for rescued animals through regular community adoption events.</p>
+    </div>
+    <div class="program">
+      <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?auto=format&fit=crop&w=600&q=80" alt="Awareness">
+      <h3>Education & Awareness</h3>
+      <p>Promote animal welfare education to build a more compassionate world.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<section id="donate" class="donate">
+  <h2>Ways to Help</h2>
+  <p>Your contribution changes lives — help us continue our rescue missions, medical aid, and shelter support.</p>
+  <button class="btn">💖 Donate Now</button>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <form onsubmit="sendMessage(event)">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Your Email" required />
+    <textarea id="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  &copy; 2025 PawHope Charity • Built with ❤️ using HTML, CSS & JavaScript
+</footer>
+
+<script>
+  function scrollToDonate() {
+    document.querySelector("#donate").scrollIntoView({ behavior: "smooth" });
+  }
+
+  function sendMessage(event) {
+    event.preventDefault();
+    alert("Thank you for reaching out! We'll get back to you soon 🐾");
+    document.querySelector("form").reset();
+  }
+
+  window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    header.style.boxShadow = window.scrollY > 50 ? "0 2px 10px rgba(0,0,0,0.2)" : "none";
+  });
+</script>
+</body>
+</html>
